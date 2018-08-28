@@ -26,11 +26,11 @@ app.post("/api/posts", (req, res, next) => {
   const post = req.body;
   console.log(post);
   res.status(201).json({
-    message: 'Post addes successfully'
+    message: 'Post added successfully'
   });
 });
 
-app.use('/api/posts', (req, res, next) => {
+app.get('/api/posts', (req, res, next) => {
 
   const posts = [
     {
