@@ -1,9 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const Post = require('./models/post');
 
 const app = express();
+
+mongoose.connect('mongodb://localhost:27018/mean-app', { useNewUrlParser: true })
+  .then(() => {
+    console.log('Connected to database!');
+  })
+  .catch(() => {
+    console.log('Conection failed!');
+  });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
